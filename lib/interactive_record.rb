@@ -2,7 +2,7 @@ require_relative "../config/environment.rb"
 require 'active_support/inflector'
 
 class InteractiveRecord
-  
+
   def self.table_name
     self.to_s.downcase.pluralize
   end
@@ -52,5 +52,8 @@ class InteractiveRecord
     sql = "SELECT * FROM #{self.table_name} WHERE name = ?"
     DB[:conn].execute(sql, name)
   end
+
+  def self.find_by(row)
+  end 
 
 end
